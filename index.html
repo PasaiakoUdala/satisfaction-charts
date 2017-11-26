@@ -1,91 +1,211 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="bower_components/chart.js/dist/Chart.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
-    </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <div id="container" style="width: 40%; height: 75%">
-            <canvas id="myChart" width="400" height="400"></canvas>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Satisfaction name</a>
         </div>
-        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right">
+                <!--<div class="form-group">-->
+                    <!--<input id="txtDesde" name="txtDesde" type="text" placeholder="01/01/2017" class="form-control">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input id="txtHasta" name="txtHasta" type="text" placeholder="31/12/2018" class="form-control">-->
+                <!--</div>-->
+                <div class="form-group">
+                    <div class="input-group input-daterange">
+                        <input type="text" class="form-control" value="2012-04-05">
+                        <div class="input-group-addon">to</div>
+                        <input type="text" class="form-control" value="2012-04-19">
+                    </div>
+                </div>
+                <button id="cmdEguneratu" type="submit" class="btn btn-success">Eguneratu</button>
+            </form>
+        </div><!--/.navbar-collapse -->
+    </div>
+</nav>
 
-        <script>
-            var ctx = document.getElementById("myChart");
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
+<div class="container">
+
+    <div class="starter-template">
+        <div id="container" style="width: 60%; height: 75%">
+            <div class="row">
+                <div class="col-md6">
+                    <canvas id="myChart1" width="400" height="400"></canvas>
+                </div>
+                <div class="col-md6">
+                    <canvas id="myChart2" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div><!-- /.container -->
+<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.eu.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+
+    function drawLineChart() {
+
+        var jsonData = $.ajax({
+            url: 'http://localhost:3000/satisfaction',
+            dataType: 'json',
+        }).done(function (results) {
+            // Split timestamp and data into separate arrays
+            var labels = [], data1 = [], data2 = [], data3 = [];
+            var aTrintxerpen1 = 0;
+            var aTrintxerpen0 = 0;
+            var aTrintxerpen_1 = 0;
+
+            var aAntxon1 = 0;
+            var aAntxon0 = 0;
+            var aAntxon_1 = 0;
+
+            var aDonibanen1 = 0;
+            var aDonibanen0 = 0;
+            var aDonibanen_1 = 0;
+
+            results.forEach(function (d) {
+
+                if (d.kokapena === "Trintxerpe") {
+                    if (d.emaitza === 1) {
+                        aTrintxerpen1 = aTrintxerpen1 + 1;
+                    } else if (d.emaitz === 0) {
+                        aTrintxerpen0 = aTrintxerpen0 + 1;
+                    } else {
+                        aTrintxerpen_1 = aTrintxerpen_1 + 1;
+                    }
+                } else if (d.kokapena === "Antxo") {
+                    if (d.emaitza === 1) {
+                        aAntxon1 = aAntxon1 + 1;
+                    } else if (d.emaitza === 0) {
+                        aAntxon0 = aAntxon0 + 1;
+                    } else {
+                        aAntxon_1 = aAntxon_1 + 1;
+                    }
+                } else {
+                    if (d.emaitza === 1) {
+                        aDonibanen1 = aDonibanen1 + 1;
+                    } else if (d.emaitza === 0) {
+                        aDonibanen0 = aDonibanen0 + 1;
+                    } else {
+                        aDonibanen_1 = aDonibanen_1 + 1;
                     }
                 }
             });
 
-            $(document).ready(function () {
-                $.ajax({
-                    url: "http://localhost:3000/satisfaction",
-                    method: "GET",
-                    success: function(response) {
-                        console.log(response);
+            var o1 = {
+                label: "Ongi",
+                data: [],
+                backgroundColor: '#D6E9C6',
+            };
+            o1.data.push(aTrintxerpen1);
+            o1.data.push(aAntxon1);
+            o1.data.push(aDonibanen1);
 
-                        var data = {
-                            labels: ["Ongi", "Erdi", "Gaizki"],
-                            datasets: {}
-                        }
+            var o2 = {
+                label: "Erdipurdi",
+                data: [],
+                backgroundColor: '#889fe8',
+            };
+            o2.data.push(aTrintxerpen0);
+            o2.data.push(aAntxon0);
+            o2.data.push(aDonibanen0);
 
-                    }
-                })
+            var o3 = {
+                label: "Gaizki",
+                data: [],
+                backgroundColor: '#f97e68',
+            };
+            o3.data.push(aTrintxerpen_1);
+            o3.data.push(aAntxon_1);
+            o3.data.push(aDonibanen_1);
+
+            // Create the chart.js data structure using 'labels' and 'data'
+            var tempData = {
+                labels: ["Trintxerpe", "Antxo", "Donibane"],
+                datasets: []
+            };
+            tempData.datasets.push(o1);
+            tempData.datasets.push(o2);
+            tempData.datasets.push(o3);
+
+
+            // Get the context of the canvas element we want to select
+            var ctx = document.getElementById("myChart1").getContext("2d");
+
+            // Instantiate a new chart
+            var myLineChart = new Chart(ctx, {
+                type: 'bar',
+                data: tempData
             });
+        });
+    }
 
-        </script>
-    </body>
+
+    $(document).ready(function () {
+        $('.input-daterange input').each(function() {
+            $(this).datepicker('clearDates');
+        });
+        drawLineChart();
+
+        $("#cmdEguneratu").click(function () {
+            drawLineChart();
+        });
+    });
+
+
+</script>
+</body>
 </html>
