@@ -95,10 +95,12 @@
                         <div class="row">&nbsp;</div>
                         <div class="row">
                             <div class="col-md-6">
+                                <legend>Guztira auzoko</legend>
                                 <canvas id="myChart1"></canvas>
                             </div>
                             <div class="col-md-6">
-                                <canvas id="myChartLine"></canvas>
+                                <legend>Emaitzak guztira</legend>
+                                <canvas id="myChartPie"></canvas>
                             </div>
                         </div>
                     </div>
@@ -266,8 +268,42 @@
                 }
             });
 
-            var ctxLine = document.getElementById("myChartLine").getContext("2d");
-            var myLine = new Chart(ctxLine, {});
+
+            /**********************GAZTA ******************/
+
+            var config = {
+                type: 'pie',
+                data: {
+                    datasets: [],
+                    labels: ["Ongi","Erdipurdi", "Gaizki"],
+                },
+                options: {
+                    responsive: true
+                }
+            };
+
+            var s1 = aTrintxerpen1 + aAntxon1 + aDonibanen1;
+            var s2 = aTrintxerpen0 + aAntxon0 + aDonibanen0;
+            var s3 = aTrintxerpen_1 + aAntxon_1 + aDonibanen_1;
+
+            var t = {
+                backgroundColor: [],
+                data: [],
+                label: "11"
+            };
+            t.backgroundColor.push(window.chartColors.green);
+            t.data.push(s1);
+            t.backgroundColor.push(window.chartColors.blue);
+            t.data.push(s2);
+            t.backgroundColor.push(window.chartColors.red);
+            t.data.push(s3);
+            config.data.datasets.push(t);
+
+
+
+
+            var ctxPie = document.getElementById("myChartPie").getContext("2d");
+            var myLineChart2 = new Chart(ctxPie, config);
 
             /***********************************************************************************************************
              ***** Tab Trintxerpe **************************************************************************************
